@@ -1,0 +1,19 @@
+# Wine Cultivar Prediction System - Dependencies
+# Production deployment compatible with Python 3.11+
+
+# Web Framework
+Flask==3.1.0
+Werkzeug==3.0.3
+
+# WSGI Server for Production
+gunicorn==21.2.0
+
+# Machine Learning
+scikit-learn==1.5.2
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.1
+
+# Model Persistence
+joblib==1.4.2
+

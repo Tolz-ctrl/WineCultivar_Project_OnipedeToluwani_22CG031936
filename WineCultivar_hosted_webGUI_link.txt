@@ -1,0 +1,220 @@
+================================================================================
+        WINE CULTIVAR ORIGIN PREDICTION SYSTEM - DEPLOYMENT INFORMATION
+================================================================================
+
+STUDENT INFORMATION:
+--------------------
+Name:                   Toluwani Onipede
+Matric Number:          22CG031936
+Course:                 Machine Learning / Data Science
+Project Title:          Wine Cultivar Origin Prediction System
+Submission Date:        January 21, 2026
+
+================================================================================
+MACHINE LEARNING SPECIFICATIONS:
+================================================================================
+
+Dataset:                UCI Wine Dataset (sklearn.datasets.load_wine)
+                        - 178 samples
+                        - 3 cultivar classes (0, 1, 2)
+                        - 13 original features (6 selected)
+
+Selected Features:      1. Alcohol
+                        2. Malic Acid
+                        3. Ash
+                        4. Alcalinity of Ash
+                        5. Magnesium
+                        6. Flavanoids
+
+Algorithm:              Logistic Regression (Multiclass Classification)
+                        - Solver: lbfgs
+                        - Max iterations: 1000
+                        - Random state: 42
+
+Preprocessing:          StandardScaler (Feature Normalization)
+                        - Fit on training data
+                        - Transform both train and test data
+
+Train/Test Split:       80% Training (142 samples)
+                        20% Testing (36 samples)
+                        - Stratified split
+                        - Random state: 42
+
+Model Performance:      Training Accuracy:   96.48%
+                        Test Accuracy:       94.44%
+                        Precision (macro):   95.83%
+                        Recall (macro):      93.33%
+                        F1-Score (macro):    94.07%
+
+Model Persistence:      Method: joblib (Python pickle alternative)
+                        Files Generated:
+                        - wine_cultivar_model.pkl (1,039 bytes)
+                        - scaler.pkl (1,047 bytes)
+
+================================================================================
+DEPLOYMENT INFORMATION:
+================================================================================
+
+GitHub Repository:      https://github.com/Tolz-ctrl/WineCultivar_Project_OnipedeToluwani_22CG031936.git
+
+Deployment Platform:    [SELECT ONE AFTER DEPLOYMENT]
+                        [ ] Render.com (Recommended - Most Stable)
+                        [ ] Railway.app (Fastest - Best Performance)
+                        [ ] Other: _______________
+
+LIVE WEB APPLICATION URL:
+-------------------------
+[INSERT YOUR DEPLOYED URL HERE AFTER DEPLOYMENT]
+
+Example formats:
+- Render:   https://wine-cultivar-prediction-toluwani.onrender.com
+- Railway:  https://winecultivar-project-production.up.railway.app
+
+Deployment Date:        [INSERT DATE]
+Last Tested:            [INSERT DATE & TIME]
+
+================================================================================
+WEB APPLICATION FEATURES:
+================================================================================
+
+Frontend:               HTML5 + CSS3 (Responsive Design)
+                        - Gradient background design
+                        - 6 input fields for wine features
+                        - Real-time form validation
+                        - Result display with confidence score
+                        - Error handling and user feedback
+
+Backend:                Flask 3.1.0 (Python Web Framework)
+                        - RESTful API endpoint: /predict
+                        - Model loading on startup
+                        - Input validation and preprocessing
+                        - JSON response support
+
+Production Server:      Gunicorn 21.2.0 (WSGI HTTP Server)
+                        - Production-ready
+                        - Concurrent request handling
+                        - Automatic worker management
+
+Dependencies:           Flask==3.1.0
+                        scikit-learn==1.5.2
+                        pandas==2.2.2
+                        numpy==1.26.4
+                        scipy==1.13.1
+                        joblib==1.4.2
+                        gunicorn==21.2.0
+                        Werkzeug==3.0.3
+
+Python Version:         3.11.7 (Production)
+                        3.14.0 (Development)
+
+================================================================================
+DEPLOYMENT GUIDES:
+================================================================================
+
+For detailed deployment instructions, see:
+1. DEPLOYMENT_ANALYSIS.md       - Platform comparison and recommendations
+2. DEPLOYMENT_GUIDE_RENDER.md   - Step-by-step Render.com deployment
+3. DEPLOYMENT_GUIDE_RAILWAY.md  - Step-by-step Railway.app deployment
+4. SCORAC_SUBMISSION_GUIDE.md   - Final submission instructions
+
+Quick Start:
+1. Ensure all files are committed to GitHub (including model/*.pkl files)
+2. Follow DEPLOYMENT_GUIDE_RENDER.md for primary deployment
+3. Test the live URL thoroughly
+4. Update this file with your live URL
+5. Follow SCORAC_SUBMISSION_GUIDE.md for final submission
+
+================================================================================
+TESTING INSTRUCTIONS:
+================================================================================
+
+Sample Test Data (Expected: Cultivar 0):
+----------------------------------------
+Alcohol:                14.23
+Malic Acid:             1.71
+Ash:                    2.43
+Alcalinity of Ash:      15.6
+Magnesium:              127
+Flavanoids:             3.06
+
+Expected Result:        Cultivar 0
+Expected Confidence:    95-100%
+
+Sample Test Data (Expected: Cultivar 1):
+----------------------------------------
+Alcohol:                12.37
+Malic Acid:             1.63
+Ash:                    2.3
+Alcalinity of Ash:      24.5
+Magnesium:              88
+Flavanoids:             2.22
+
+Expected Result:        Cultivar 1
+Expected Confidence:    85-95%
+
+Sample Test Data (Expected: Cultivar 2):
+----------------------------------------
+Alcohol:                13.2
+Malic Acid:             1.78
+Ash:                    2.14
+Alcalinity of Ash:      11.2
+Magnesium:              100
+Flavanoids:             2.65
+
+Expected Result:        Cultivar 2
+Expected Confidence:    90-100%
+
+================================================================================
+PROJECT STRUCTURE:
+================================================================================
+
+WineCultivar_Project_OnipedeToluwani_22CG031936/
+├── app.py                              # Flask web application
+├── requirements.txt                    # Python dependencies
+├── Procfile                            # Deployment configuration
+├── runtime.txt                         # Python version specification
+├── model/
+│   ├── model_building.ipynb            # Training notebook
+│   ├── train_model.py                  # Training script
+│   ├── wine_cultivar_model.pkl         # Trained model (1,039 bytes)
+│   └── scaler.pkl                      # Fitted scaler (1,047 bytes)
+├── templates/
+│   └── index.html                      # Web interface
+├── static/
+│   └── style.css                       # Optional styling
+└── Documentation/
+    ├── README.md
+    ├── DEPLOYMENT_ANALYSIS.md
+    ├── DEPLOYMENT_GUIDE_RENDER.md
+    ├── DEPLOYMENT_GUIDE_RAILWAY.md
+    └── SCORAC_SUBMISSION_GUIDE.md
+
+================================================================================
+SUBMISSION CHECKLIST:
+================================================================================
+
+Before Final Submission:
+[ ] Model trained successfully (94.44% test accuracy achieved)
+[ ] All code files committed to GitHub
+[ ] Model files (*.pkl) committed to GitHub repository
+[ ] Application deployed to cloud platform
+[ ] Live URL tested and working
+[ ] All 6 features accept input correctly
+[ ] Predictions return with confidence scores
+[ ] This file updated with live URL and deployment details
+[ ] Project folder renamed: WineCultivar_Project_OnipedeToluwani_22CG031936
+[ ] Final submission uploaded to Scorac.com
+
+================================================================================
+CONTACT & SUPPORT:
+================================================================================
+
+For deployment issues, refer to:
+- DEPLOYMENT_ANALYSIS.md (troubleshooting section)
+- Platform-specific guides (Render/Railway)
+- GitHub repository README.md
+
+================================================================================
+                            END OF DEPLOYMENT INFORMATION
+================================================================================
+
