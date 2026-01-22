@@ -1,35 +1,39 @@
 # Wine Cultivar Prediction System - Dependencies
-# Pinned for Python 3.11 compatibility with prebuilt wheels on Render
+# Optimized for Python 3.11.6 with guaranteed prebuilt wheels (no source builds)
 
 # Web Framework
 Flask==3.0.3
-# Flask 3.0.3 has prebuilt wheels for Python 3.11 and is stable for production
+# Stable production release with prebuilt wheels for Python 3.11
 
 Werkzeug==3.0.3
-# Werkzeug 3.0.3 is compatible with Flask 3.0.3 and has prebuilt wheels
+# Compatible with Flask 3.0.3, has prebuilt wheels
 
 # WSGI Server for Production
 gunicorn==21.2.0
-# Gunicorn 21.2.0 has prebuilt wheels for Python 3.11
+# Production WSGI server with prebuilt wheels for Python 3.11
 
-# Machine Learning - CRITICAL: Use versions with prebuilt wheels for Python 3.11
-numpy==1.24.3
-# numpy 1.24.3 has prebuilt wheels for Python 3.11 (avoids Cython compilation)
-# Must install BEFORE pandas and scikit-learn
+# Machine Learning - CRITICAL: Versions with prebuilt wheels to avoid setuptools.build_meta errors
+numpy==1.26.4
+# numpy 1.26.4 has prebuilt manylinux wheels for Python 3.11
+# Replaces 1.24.3 which caused setuptools.build_meta compilation errors on Render
+# Must install BEFORE pandas and scikit-learn (dependency order critical)
 
-pandas==2.0.3
-# pandas 2.0.3 has prebuilt wheels for Python 3.11 (depends on numpy 1.24.x)
-# Avoids source build and Cython errors
+pandas==2.2.1
+# pandas 2.2.1 has prebuilt wheels for Python 3.11 and is compatible with numpy 1.26.4
+# Avoids Cython source compilation that fails on Render's build environment
 
-scikit-learn==1.3.2
-# scikit-learn 1.3.2 has prebuilt wheels for Python 3.11
-# Compatible with numpy 1.24.3 and scipy 1.11.x
+scikit-learn==1.4.2
+# scikit-learn 1.4.2 has prebuilt wheels for Python 3.11
+# Compatible with numpy 1.26.4 and scipy 1.12.0
+# Avoids compilation errors from older versions
 
-scipy==1.11.4
-# scipy 1.11.4 has prebuilt wheels for Python 3.11
-# Required by scikit-learn, avoids compilation
+scipy==1.12.0
+# scipy 1.12.0 has prebuilt wheels for Python 3.11
+# Required by scikit-learn, compatible with numpy 1.26.4
+# Avoids lengthy compilation process
 
 # Model Persistence
 joblib==1.3.2
 # joblib 1.3.2 has prebuilt wheels for Python 3.11
+# Used for loading .pkl model files
 
