@@ -1,4 +1,2 @@
 python-3.11.6
-# Forces Render to use Python 3.11.6 instead of defaulting to 3.13
-# Python 3.11.6 has stable prebuilt wheels for all scientific packages
 
